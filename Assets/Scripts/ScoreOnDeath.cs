@@ -10,14 +10,14 @@ public class ScoreOnDeath : MonoBehaviour
     {
         ScoreManager.instance.amount += amount;
     }
-    void Start()
+    private void Awake()
     {
-        
+        var life = GetComponent<Life>();
+        life.onDeath.AddListener(GivePoints);
     }
-
+    void GivePoints()
+    {
+        ScoreManager.instance.amount += amount;
+    }
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

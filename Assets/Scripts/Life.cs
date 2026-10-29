@@ -1,21 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Life : MonoBehaviour
 {
     // Start is called before the first frame update
     public float amount;
-    void Start()
-    {
-        
-    }
+    public UnityEvent onDeath;
 
     // Update is called once per frame
     void Update()
     {
-        if (amount < 0)
+        if (amount <= 0)
         {
+            onDeath.Invoke();
             Destroy(gameObject);
         }
     }
