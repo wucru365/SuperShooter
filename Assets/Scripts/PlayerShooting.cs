@@ -7,6 +7,7 @@ public class PlayerShooting : MonoBehaviour
 {
     public GameObject prefab;
     public GameObject shootPoint;
+    public AudioSource shootSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class PlayerShooting : MonoBehaviour
             GameObject clone = Instantiate(prefab);
             clone.transform.position = shootPoint.transform.position;
             clone.transform.rotation = shootPoint.transform.rotation;
+            shootSound.Play();
         }
         
     }
